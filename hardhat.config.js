@@ -44,6 +44,7 @@ module.exports = {
       scroll_sepolia: 'abc',
       arbitrumGoerli: process.env.ARBISCAN,
       fuji: process.env.SNOWTRACE,
+      scrollMainnet: process.env.SCROLLSCAN
     },
     customChains: [
       {
@@ -52,6 +53,14 @@ module.exports = {
         urls: {
           apiURL: "https://blockscout.scroll.io/api",
           browserURL: "https://blockscout.scroll.io",
+        },
+      },
+      {
+        network: 'scrollMainnet',
+        chainId: 534352,
+        urls: {
+          apiURL: "https://api.scrollscan.com/api",
+          browserURL: "https://scrollscan.com/",
         },
       },
       {
@@ -128,6 +137,10 @@ module.exports = {
       url: "https://rpc.scroll.io ",
       accounts: [keys],
     },
+    scrollMainnet:{
+      url: "https://rpc.scroll.io",
+      accounts: [keys],
+    },
     taiko_testnet: {    
       allowUnlimitedContractSize: true,
       gas: 2100000,
@@ -180,7 +193,7 @@ module.exports = {
       accounts: [keys], // Uses the private key from the .env file
     },
     arbg: {
-      url: "https://arbitrum-goerli.blockpi.network/v1/rpc/public",
+      url: process.env.RPC_URL2,
       accounts: [keys],
     },
     fuji: {
